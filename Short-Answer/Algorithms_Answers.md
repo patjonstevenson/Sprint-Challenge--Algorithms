@@ -2,20 +2,23 @@
 
 ## Exercise I
 
-a) Should run n times, because after adding n * n to a n times, a will be a + n * n * n because n * n * n == n * n * n
+a) Should be O(n), because after adding n * n to a n times, a will be a + n * n * n because n * n * n == n * n * n
 
 
-b) The for loop will run n times. The while loop will run n/2 times per run of the for loop, so what is that - (n^2)/2, so basically just O(n^2) since we ignore constants?
+b) The for loop will run n times. The while loop will run log(n) times per run of the for loop, because each run of the while loop, j gets divided by 2. So the run time is O(nlog(n))
 
 
-c) Should run O(bunnies) since it just uses recursion to iterate down from bunnies to 0, summing up the total number of bunny ears (2 per bunny).
+c) Should run O(n) since it just uses recursion to iterate down from bunnies to 0, summing up the total number of bunny ears (2 per bunny).
 
 ## Exercise II
 
-n stories infinite eggs egg thrown from floor if floor f or higher, egg breaks else, egg doesn't break
+I would use binary search to find the breaking point f as a way to minimize the number of tests (ie egg droppings)
 
-find value of f s.t. min dropped+broken
+First I would go to floor n/2 and drop an egg.
 
-I guess I'm a little confused - are we dropping an egg off of every floor? And are we trying to minimize the number of eggs dropped (since the instructions say to minimize the number of eggs dropped + broken)?
+If the egg broke, I would know I was too high. I could eliminate all the floors above n/2. I would then move to floor n/4.
+If the egg did not break, I would know I was too low. I could eliminate all the floors below n/2. I would then move to floor 3n/4.
 
-If eggs are being dropped from every floor, couldn't we just set f to n? What is the task here? Where does the programming come in?
+I would repeat this pattern - go the midpoint of the section I'm looking at, test by dropping an egg, if the egg breaks go to the midpoint between the current floor and the lowest floor of the section I'm testing, if it doesn't, go to the midpoint between the current floor and the highest floor of the section I'm testing.
+
+Eventually, I would find the floor in about log n tries, worst case scenario.
