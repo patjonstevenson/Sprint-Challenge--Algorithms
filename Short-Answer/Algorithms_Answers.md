@@ -11,4 +11,15 @@ c) Should run O(bunnies) since it just uses recursion to iterate down from bunni
 
 ## Exercise II
 
+n stories
+infinite eggs
+egg thrown from floor
+    if floor f or higher, egg breaks
+    else, egg doesn't break
+
+find value of f s.t. min dropped+broken
+
+I guess I'm a little confused - are we throwing an egg off of every floor? And are we trying to minimize the number of eggs dropped (since the instructions say to minimize the number of eggs dropped + broken)?
+
+If eggs are being dropped from every floor, couldn't we just set f to n? What is the task here? Where does the programming come in?
 
