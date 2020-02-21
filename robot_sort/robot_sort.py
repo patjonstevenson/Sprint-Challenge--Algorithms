@@ -92,11 +92,40 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def return_to_none(self):
+        while self.compare_item() != None:
+            self.move_left()
+
+
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
+        """
+        Algorithm should be:
+        Swap first item
+        repeat until reach end:
+        do
+        move right
+        compare, if > 0, swap
+        done
+        return to none
+        move right
+        repeat
+        """
+        while self.light_is_on():
+            self.swap_item()
+            while self.can_move_right():
+                self.move_right()
+                if self.compare_item() > 0:
+                    self.swap_item()
+                    
+            self.return_to_none()
+            if not self.can_move_right():
+                self.set_light_off()
+            
+
+
         pass
 
 
