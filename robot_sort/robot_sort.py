@@ -113,20 +113,26 @@ class SortingRobot:
         move right
         repeat
         """
+        self.set_light_on()
+        # Main loop
         while self.light_is_on():
+            # Get item
             self.swap_item()
+            # Compare to subsequent items, making swaps where item held is greater
             while self.can_move_right():
                 self.move_right()
                 if self.compare_item() > 0:
                     self.swap_item()
-                    
+            # Once you reach the end, return to original position with the next lowest item
             self.return_to_none()
+            self.swap_item()
+            self.move_right()
             if not self.can_move_right():
                 self.set_light_off()
             
 
 
-        pass
+        
 
 
 if __name__ == "__main__":
