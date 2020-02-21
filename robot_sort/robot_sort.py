@@ -92,11 +92,51 @@ class SortingRobot:
         """
         return self._light == "ON"
 
+    def return_to_start(self):
+        while self.can_move_left():
+            self.move_left()
+
     def sort(self):
         """
         Sort the robot's list.
         """
-        # Fill this out
+        while not self.light_is_on():
+            self.set_light_on()
+            self.return_to_start()
+            print(f"Position at start of while: {self._position}")
+            print(f"self._item at start of while: {self._item}")
+            # self.swap_item()
+            print(f'item prior to for: {self._item}')
+            # Loop over all items
+            for i in range(1, len(self._list)-1):
+                # self.swap_item()
+                # Loop over next items, looking for an item that is less than the current item to swap with
+                for j in range(i, len(self._list)-1):
+                    self.move_right()
+                    if self.compare_item():
+                        # print(self._list[self._position])
+                        # print("Swapping items")
+                        self.swap_item()
+                        if self.light_is_on():
+                            self.set_light_off()
+            
+            
+            # for i in range(1, len(self._list) - 1):
+            #     self.swap_item()
+            #     self.move_right()
+            #     if not self.compare_item():
+            #         self.swap_item()
+            #         if self.light_is_on():
+            #             self.set_light_off()
+            if not self.light_is_on():
+                self.set_light_on()
+            else:
+                self.set_light_off()
+            
+
+            
+
+
         pass
 
 
