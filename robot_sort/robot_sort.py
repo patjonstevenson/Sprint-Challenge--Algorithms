@@ -100,6 +100,7 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
+        # Trying to implement something like bubble_sort
         while not self.light_is_on():
             self.set_light_on()
             self.return_to_start()
